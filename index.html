@@ -76,3 +76,142 @@
     </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开源项目赞助支持</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        .payment-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .payment-method {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+        }
+        .qrcode {
+            width: 100%;
+            max-width: 300px;
+            margin: 15px auto;
+            border: 2px solid #ddd;
+            padding: 10px;
+            background: white;
+        }
+        .ustd-box {
+            margin-top: 10px;
+        }
+        .ustd-address {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: monospace;
+            word-break: break-all;
+            font-size: 0.9em;
+        }
+        .copy-btn {
+            margin: 10px 0;
+            padding: 6px 20px;
+            cursor: pointer;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover {
+            background: #e0e0e0;
+        }
+        .note {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            .payment-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🛠️ 支持开源开发</h1>
+    <p>感谢使用我的开源项目！如果这个项目对你有帮助，欢迎通过以下方式赞助支持持续开发。</p>
+
+    <div class="payment-container">
+        <!-- 支付宝 -->
+        <div class="payment-method">
+            <h3>支付宝</h3>
+            <img src="alipay_qrcode.jpg" alt="支付宝收款码" class="qrcode">
+        </div>
+
+        <!-- 微信 -->
+        <div class="payment-method">
+            <h3>微信支付</h3>
+            <img src="wechat_qrcode.jpg" alt="微信收款码" class="qrcode">
+        </div>
+
+        <!-- USDT -->
+        <div class="payment-method">
+            <h3>USDT (TRC20)</h3>
+            <!-- 替换 your_usdt_qrcode.jpg 为你的USDT二维码 -->
+            <img src="usdt_qrcode.jpg" alt="USDT收款码" class="qrcode">
+            
+            <div class="ustd-box">
+                <div class="ustd-address" id="ustdAddress">
+                    TNvvU872CWJ8w1W7CeDsvZGdfTTkq7qnrK
+                </div>
+                <button class="copy-btn" onclick="copyUSDTAddress()">复制地址</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">
+        <h2>使用说明：</h2>
+        <ul>
+            <li>我们十分感谢您对我们的支持</li>
+            <li>USDT支持两种方式：
+                <ul>
+                    <li>直接扫描TRC20二维码</li>
+                    <li>或复制上方地址手动转账</li>
+                </ul>
+            </li>
+            <li>请务必使用TRC20网络</li>
+            <li>赞助后请备注GitHub用户名</li>
+        </ul>
+        
+        <p>📧 技术支持：dev.support@example.com</p>
+    </div>
+
+    <script>
+        // 复制地址功能
+        function copyUSDTAddress() {
+            const address = document.getElementById('ustdAddress').innerText.trim();
+            navigator.clipboard.writeText(address).then(() => {
+                alert('✅ 地址已复制到剪贴板');
+            }).catch(err => {
+                console.error('复制失败:', err);
+                alert('❌ 复制失败，请手动选择复制');
+            });
+        }
+
+        // 访问量统计（可选）
+        window.addEventListener('load', () => {
+            let visitCount = localStorage.getItem('pageVisits') || 0;
+            visitCount++;
+            localStorage.setItem('pageVisits', visitCount);
+        });
+    </script>
+</body>
+</html>
